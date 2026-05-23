@@ -1,0 +1,184 @@
+/*
+|--------------------------------------------------------------------------
+| Variables Module
+|--------------------------------------------------------------------------
+|
+| Centralized configuration for colors, typography, spacing, breakpoints,
+| z-index layers, and other design tokens used throughout the application.
+| Modifying values here ensures consistent updates across all components.
+|
+*/
+
+$base-black: #000000;
+$base-gray: #808080;
+$base-white: #FFFFFF;
+$base-red: #FF0000;
+$base-orange: #FF8C00;
+$base-yellow: #FFFF00;
+$base-green: #00FF00;
+$base-cyan: #00FFFF;
+$base-blue: #0000FF;
+$base-purple: #800080;
+$base-magenta: #FF00FF;
+
+$brand-color-extra-dark: #1A2C7A;
+$brand-color-dark: #2B47C0;
+$brand-color: #3C5CFF;
+$brand-color-light: #617DFF;
+$brand-color-extra-light: #7B9BFF;
+
+$brand-color-background-dark: #E6EAFF;
+$brand-color-background: #EEF1FF;
+$brand-color-background-light: #F8F9FF;
+
+$color-danger: #DC3545;
+$color-danger-light: #FF6B6B;
+$color-warning: #FFC107;
+$color-warning-light: #FFD166;
+$color-success: #28A745;
+$color-success-light: #51CF66;
+
+$primary-50:  #EFF6FF;
+$primary-100: #DBEAFE;
+$primary-200: #BFDBFE;
+$primary-300: #93C5FD;
+$primary-400: #60A5FA;
+$primary-500: #3B82F6;
+$primary-600: #2563EB;
+$primary-700: #1D4ED8;
+$primary-800: #1E40AF;
+$primary-900: #1E3A8A;
+
+$secondary-50:  #F8FAFC;
+$secondary-100: #F1F5F9;
+$secondary-200: #E2E8F0;
+$secondary-300: #CBD5E1;
+$secondary-400: #94A3B8;
+$secondary-500: #64748B;
+$secondary-600: #475569;
+$secondary-700: #334155;
+$secondary-800: #1E293B;
+$secondary-900: #0F172A;
+
+$neutral-50:  #F9FAFB;
+$neutral-100: #F3F4F6;
+$neutral-200: #E5E7EB;
+$neutral-300: #D1D5DB;
+$neutral-400: #9CA3AF;
+$neutral-500: #6B7280;
+$neutral-600: #4B5563;
+$neutral-700: #374151;
+$neutral-800: #1F2937;
+$neutral-900: #111827;
+
+$success-50:  #ECFDF5;
+$success-500: #10B981;
+$success-700: #047857;
+
+$warning-50:  #FFFBEB;
+$warning-500: #F59E0B;
+$warning-700: #B45309;
+
+$error-50:    #FEF2F2;
+$error-500:   #EF4444;
+$error-700:   #B91C1C;
+
+$info-50:     #ECFEFF;
+$info-500:    #06B6D4;
+$info-700:    #0E7490;
+
+$font-family-inter: "Inter", sans-serif;
+
+/// Font sizes (px)
+$font-xs:   12px;
+$font-sm:   14px;
+$font-base: 16px;
+$font-md:   18px;
+$font-lg:   20px;
+$font-xl:   24px;
+$font-2xl:  30px;
+$font-3xl:  36px;
+$font-4xl:  48px;
+$font-5xl:  60px;
+
+/// Font weights
+$font-thin:       100;
+$font-extralight: 200;
+$font-light:      300;
+$font-normal:     400;
+$font-medium:     500;
+$font-semibold:   600;
+$font-bold:       700;
+$font-extrabold:  800;
+$font-black:      900;
+
+/// Base spacing unit (4px = 0.25rem)
+$spacing-0:   0;
+$spacing-px:  1px;
+$spacing-0_5: 2px;
+$spacing-1:   4px;
+$spacing-1_5: 6px;
+$spacing-2:   8px;
+$spacing-2_5: 10px;
+$spacing-3:   12px;
+$spacing-3_5: 14px;
+$spacing-4:   16px;
+$spacing-5:   20px;
+$spacing-6:   24px;
+$spacing-7:   28px;
+$spacing-8:   32px;
+$spacing-9:   36px;
+$spacing-10:  40px;
+$spacing-11:  44px;
+$spacing-12:  48px;
+$spacing-14:  56px;
+$spacing-16:  64px;
+$spacing-20:  80px;
+$spacing-24:  96px;
+$spacing-28:  112px;
+$spacing-32:  128px;
+$spacing-36:  144px;
+$spacing-40:  160px;
+$spacing-44:  176px;
+$spacing-48:  192px;
+$spacing-52:  208px;
+$spacing-56:  224px;
+$spacing-60:  240px;
+$spacing-64:  256px;
+$spacing-72:  288px;
+$spacing-80:  320px;
+$spacing-96:  384px;
+
+/// Semantic spacing aliases
+$spacing-xs:  $spacing-2;
+$spacing-sm:  $spacing-3;
+$spacing-md:  $spacing-4;
+$spacing-lg:  $spacing-6;
+$spacing-xl:  $spacing-8;
+$spacing-2xl: $spacing-12;
+$spacing-3xl: $spacing-16;
+
+$radius-none:   0;
+$radius-sm:     2px;
+$radius-base:   4px;
+$radius-md:     6px;
+$radius-lg:     8px;
+$radius-xl:     12px;
+$radius-2xl:    16px;
+$radius-3xl:    24px;
+$radius-full:   9999px;
+
+$border-width-0: 0;
+$border-width-1: 1px;
+$border-width-2: 2px;
+$border-width-4: 4px;
+$border-width-8: 8px;
+
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+$shadow-none: none;

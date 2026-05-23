@@ -1,0 +1,47 @@
+/*
+|--------------------------------------------------------------------------
+| Global Styles Module
+|--------------------------------------------------------------------------
+|
+| Defines global-level styles that apply across the entire application,
+| including body typography, link behaviors, selection states, and other
+| element-level overrides that follow the reset layer.
+|
+*/
+
+@use "./variables" as *;
+
+.page-title {
+  font-family: $font-family-inter;
+  font-weight: $font-bold;
+  font-size: $font-lg;
+  line-height: 24px;
+}
+
+.section-text {
+  font-family: $font-family-inter;
+  font-weight: $font-bold;
+  font-size: $font-md;
+  line-height: 22px;
+}
+
+.body-text {
+  font-family: $font-family-inter;
+  font-weight: $font-medium;
+  font-size: $font-base;
+  line-height: 20px;
+}
+
+.content-text {
+  font-family: $font-family-inter;
+  font-weight: $font-normal;
+  font-size: $font-sm;
+  line-height: 18px;
+}
+
+.caption-text {
+  font-family: $font-family-inter;
+  font-weight: $font-normal;
+  font-size: $font-xs;
+  line-height: 16px;
+}

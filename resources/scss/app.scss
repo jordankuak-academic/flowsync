@@ -1,0 +1,14 @@
+/*
+|--------------------------------------------------------------------------
+| Application Entry Point
+|--------------------------------------------------------------------------
+|
+| The main stylesheet entry that orchestrates all style modules. Import
+| order matters for proper cascade and variable availability. Abstracts
+| (variables, functions, mixins) must be imported before any styles that
+| depend on them.
+|
+*/
+
+@use "./abstracts/base";
+@use "./abstracts/global";
