@@ -1,14 +1,22 @@
-/*
-|--------------------------------------------------------------------------
-| Application Entry Point
-|--------------------------------------------------------------------------
-|
-| The main stylesheet entry that orchestrates all style modules. Import
-| order matters for proper cascade and variable availability. Abstracts
-| (variables, functions, mixins) must be imported before any styles that
-| depend on them.
-|
-*/
+// Core variables, functions, and mixins
+@import "./abstracts/base";
+@import "./abstracts/global";
 
-@use "./abstracts/base";
-@use "./abstracts/global";
+// Global legacy styling & utility layer
+@import "./style.scss";
+
+// Icons (Google Material Symbols mapping)
+@import "./icons.scss";
+
+// Page level stylesheet
+@import "./page.scss";
+
+// Module stylesheets
+@import "./modules/login.scss";
+@import "./modules/dashboard.scss";
+@import "./modules/project.scss";
+@import "./modules/team.scss";
+
+// Layout stylesheets (in case any custom overrides are needed)
+@import "./layouts/hsxxx-layout.scss";
+@import "./layouts/xxxxx-layout.scss";

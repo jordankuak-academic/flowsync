@@ -10,17 +10,19 @@
     
     @vite(["resources/scss/app.scss", "resources/js/app.js"])
   </head>
-  <body>
-    <header>
+  <body class="bg-light">
+    <div class="app-container d-flex flex-column min-vh-100">
       <x-fs-header></x-fs-header>
-    </header>
-    
-    <aside>
-      <x-fs-sidemenu></x-fs-sidemenu>
-    </aside>
-    
-    <main>
-      @yield("content")
-    </main>
+      
+      <div class="main-layout d-flex flex-grow-1">
+        <x-fs-sidemenu></x-fs-sidemenu>
+        
+        <main class="content-viewport flex-grow-1 p-4 fade-in">
+          @yield("content")
+        </main>
+      </div>
+    </div>
+
+    <x-fs-confirmation-modal></x-fs-confirmation-modal>
   </body>
 </html>

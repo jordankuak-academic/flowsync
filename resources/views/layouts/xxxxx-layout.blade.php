@@ -10,7 +10,9 @@
     
     @vite(["resources/scss/app.scss", "resources/js/app.js"])
   </head>
-  <body>
-    @yield("content")
+  <body class="bg-light">
+    <main class="login-split-container">
+      @yield("content")
+    </main>
   </body>
 </html>

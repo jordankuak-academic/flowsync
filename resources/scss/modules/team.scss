@@ -1,0 +1,220 @@
+.team-project-overview {
+  background: #ffffff;
+}
+
+.team-project-overview .card-header,
+.team-members-panel .card-header {
+  border-bottom: 1px solid #eef2f7 !important;
+}
+
+.team-project-overview .dropdown-toggle {
+  background: #f8fafc;
+  border-color: #e2e8f0 !important;
+}
+
+.team-project-overview .dropdown-toggle:hover {
+  background: #eff6ff;
+  color: #2563eb !important;
+}
+
+.team-project-list-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.team-project-section {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.team-project-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+
+.team-project-section-title.done {
+  color: #10b981;
+}
+
+.team-project-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid transparent;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.team-project-list-item:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.team-project-list-item + .team-project-list-item {
+  margin-top: 4px;
+}
+
+.team-project-list-item.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, .18);
+}
+
+.team-project-list-item.active.done {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 8px 18px rgba(16, 185, 129, .18);
+}
+
+.team-task-overview-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 2px 8px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.team-task-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 9px 10px;
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .06);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.team-task-row:hover {
+  transform: translateY(-1px);
+  border-color: #bfdbfe;
+  background: #fafcff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, .08);
+}
+
+.team-task-row.subtask-row {
+  margin-left: 20px;
+  background: #f8fafc;
+  border-left: 3px solid #bfdbfe;
+}
+
+.team-task-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.team-task-name {
+  min-width: 0;
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-task-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.member-row {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 32px;
+  align-items: center;
+  column-gap: 14px;
+  min-height: 74px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-color: #e2e8f0 !important;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.member-row:hover {
+  transform: translateY(-1px);
+  border-color: #bfdbfe !important;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, .08) !important;
+}
+
+.member-row .badge {
+  background: #eff6ff !important;
+  border-color: #dbeafe !important;
+}
+
+.member-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-avatar-circle {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #ffffff;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.member-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.member-name {
+  margin: 0;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.member-role {
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 10px !important;
+  font-weight: 700;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.member-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (max-width: 760px) {
+  .team-project-list-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .team-task-row {
+    align-items: flex-start;
+  }
+}
