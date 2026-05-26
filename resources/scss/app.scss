@@ -12,3 +12,8 @@
 
 @use "./abstracts/base";
 @use "./abstracts/global";
+
+@use "./modules/team";
+
+@use "./layouts/navbar";
+@use "./layouts/sidebar";

@@ -1,0 +1,550 @@
+@use '../abstracts/variables';
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.main-content{
+
+    margin-left:70px;
+
+    margin-top:76px;
+
+    padding:24px;
+
+    min-height:100vh;
+
+    background:#F8FAFC;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+
+    width:100%;
+}
+
+
+/* =========================
+   OVERVIEW CARD
+========================= */
+
+.overview-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #DCE3F1;
+
+    border-radius:28px;
+
+    padding:32px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.overview-header{
+
+    margin-bottom:28px;
+}
+
+
+.header-left h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0F172A;
+}
+
+
+/* =========================
+   OVERVIEW GRID
+========================= */
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:360px 1fr;
+
+    gap:28px;
+
+    align-items:start;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel{
+
+    background:#F8FAFC;
+
+    border:1px solid #DCE3F1;
+
+    border-radius:24px;
+
+    padding:24px;
+}
+
+
+/* =========================
+   PANEL TITLE
+========================= */
+
+.panel-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+}
+
+
+.panel-title h3{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+    margin:0;
+}
+
+
+/* =========================
+   ADD BUTTONS
+========================= */
+
+#addCategoryBtn,
+#addMemberBtn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+}
+
+
+/* =========================
+   CATEGORY LIST
+========================= */
+
+#categoryList{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+
+#categoryList li{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:#FFFFFF;
+
+    border:1px solid #DCE3F1;
+
+    border-radius:18px;
+
+    padding:18px;
+}
+
+
+/* =========================
+   CATEGORY INFO
+========================= */
+
+.category-info{
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+.category-name{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:#0F172A;
+}
+
+
+/* =========================
+   CATEGORY ACTIONS
+========================= */
+
+.category-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+.badge{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+
+.edit-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:10px;
+
+    background:#EFF4FF;
+
+    color:#2563EB;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+}
+
+
+/* =========================
+   CATEGORY FORM
+========================= */
+
+.category-form-panel{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+.category-label{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+    color:#0F172A;
+}
+
+
+.category-input{
+
+    width:100%;
+
+    height:58px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:16px;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    margin-bottom:28px;
+
+    background:#FFFFFF;
+}
+
+
+.category-input:focus{
+
+    outline:none;
+
+    border-color:#2563EB;
+}
+
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.button-group{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:auto;
+}
+
+
+.cancel-btn,
+.confirm-btn{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+.cancel-btn{
+
+    background:#E2E8F0;
+
+    color:#0F172A;
+}
+
+
+.confirm-btn{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+}
+
+
+/* =========================
+   MEMBER GRID
+========================= */
+
+.member-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+
+/* =========================
+   MEMBER CARD LINK
+========================= */
+
+.member-card-link{
+
+    text-decoration:none;
+}
+
+
+/* =========================
+   MEMBER CARD
+========================= */
+
+.member-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #DCE3F1;
+
+    border-radius:22px;
+
+    padding:22px 16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    min-height:220px;
+
+    transition:0.2s ease;
+}
+
+
+.member-card:hover{
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   MEMBER INFO
+========================= */
+
+.member-info h4{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#0F172A;
+
+    margin-bottom:8px;
+}
+
+
+.member-info p{
+
+    font-size:15px;
+
+    color:#64748B;
+
+    margin:0;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.custom-toast{
+
+    position:fixed;
+
+    top:24px;
+
+    right:24px;
+
+    min-width:280px;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    color:#FFFFFF;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:0.3s ease;
+
+    z-index:9999;
+}
+
+
+.custom-toast.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+.custom-toast.success{
+
+    background:#16A34A;
+}
+
+
+.custom-toast.error{
+
+    background:#DC2626;
+}
