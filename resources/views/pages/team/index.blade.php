@@ -1,14 +1,15 @@
-{{-- resources/views/index.blade.php --}}
+{{-- resources/views/pages/team/index.blade.php --}}
 
 @php
 
-$isCategoryAction = isset($_GET['action']);
+$isCategoryAction = request('action');
 
-$isEdit = $_GET['action'] ?? '';
+$isEdit = request('action', '');
 
-$categoryName = $_GET['name'] ?? '';
+$categoryName = request('name', '');
 
 $categories = [
+
     [
         "name" => "Project Manager",
         "count" => 2
@@ -18,9 +19,11 @@ $categories = [
         "name" => "Programmer",
         "count" => 2
     ]
+
 ];
 
 $members = [
+
     [
         "id" => 1,
         "avatar" => "KM",
@@ -48,6 +51,7 @@ $members = [
         "name" => "Swee Sheng",
         "role" => "Programmer"
     ]
+
 ];
 
 @endphp
@@ -77,9 +81,8 @@ $members = [
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    {{-- CUSTOM CSS --}}
-    <link
-        @vite(['resources/scss/app.scss'])
+    {{-- CUSTOM SCSS --}}
+    @vite(['resources/scss/app.scss'])
 
     {{-- FONT AWESOME --}}
     <link
@@ -222,7 +225,7 @@ $members = [
                                     </span>
 
                                     <a
-                                        href="{{ url('index?action=edit-category&name=' . urlencode($category['name'])) }}"
+                                        href="{{ url('/team?action=edit-category&name=' . urlencode($category['name'])) }}"
                                         class="edit-btn">
 
                                         <i class="bi bi-pencil-fill"></i>
@@ -251,7 +254,7 @@ $members = [
                             </h3>
 
                             <a
-                                href="{{ url('create_member') }}"
+                                href="{{ url('/create_member') }}"
                                 id="addMemberBtn">
 
                                 <i class="fa-solid fa-user-plus"></i>
@@ -261,7 +264,8 @@ $members = [
                         </div>
 
                         {{-- MEMBER GRID --}}
-                        <div class="member-grid"
+                        <div
+                            class="member-grid"
                             id="memberGrid">
 
                             @foreach($members as $member)
@@ -270,7 +274,8 @@ $members = [
                                 href="{{ url('view_member?id=' . $member['id']) }}"
                                 class="member-card-link">
 
-                                <div class="member-card"
+                                <div
+                                    class="member-card"
                                     data-id="{{ $member['id'] }}"
                                     data-category="{{ $member['role'] }}">
 
@@ -340,10 +345,13 @@ function showToast(message, type){
 
         }, 300);
 
-    }, 2200);
+    }, 800);
 }
 
-/* ADD CATEGORY */
+
+/* =========================
+   ADD CATEGORY
+========================= */
 
 const addCategoryBtn =
 document.getElementById("addCategoryBtn");
@@ -353,12 +361,15 @@ if(addCategoryBtn){
     addCategoryBtn.addEventListener("click", () => {
 
         window.location.href =
-        "{{ url('index?action=create-category') }}";
+        "{{ url('/team?action=create-category') }}";
 
     });
 }
 
-/* CANCEL BUTTON */
+
+/* =========================
+   CANCEL BUTTON
+========================= */
 
 const cancelBtn =
 document.getElementById("cancelBtn");
@@ -368,12 +379,15 @@ if(cancelBtn){
     cancelBtn.addEventListener("click", () => {
 
         window.location.href =
-        "{{ url('index') }}";
+        "{{ url('/team') }}";
 
     });
 }
 
-/* CONFIRM BUTTON */
+
+/* =========================
+   CONFIRM BUTTON
+========================= */
 
 const confirmBtn =
 document.getElementById("confirmBtn");
@@ -409,7 +423,7 @@ if(confirmBtn){
         setTimeout(() => {
 
             window.location.href =
-            "{{ url('index') }}";
+            "{{ url('/team') }}";
 
         }, 800);
 
