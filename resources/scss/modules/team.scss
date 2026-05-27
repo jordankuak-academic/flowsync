@@ -548,3 +548,26 @@
 
     background:#DC2626;
 }
+
+// Core variables, functions, and mixins
+@import "./abstracts/base";
+@import "./abstracts/global";
+
+// Global legacy styling & utility layer
+@import "./style.scss";
+
+// Icons (Google Material Symbols mapping)
+@import "./icons.scss";
+
+// Page level stylesheet
+@import "./page.scss";
+
+// Module stylesheets
+@import "./modules/login.scss";
+@import "./modules/dashboard.scss";
+@import "./modules/project.scss";
+@import "./modules/team.scss";
+
+// Layout stylesheets (in case any custom overrides are needed)
+@import "./layouts/hsxxx-layout.scss";
+@import "./layouts/xxxxx-layout.scss";
