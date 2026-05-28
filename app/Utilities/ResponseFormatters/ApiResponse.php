@@ -4,7 +4,7 @@ namespace App\Utilities\ResponseFormatters;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
-trait JsonResponseFormatter {
+trait ApiResponse {
     protected function successResponse(string $message, array $data = [], int $statusCode = 200): JsonResponse {
         return response()->json([
             "status" => true,
