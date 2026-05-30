@@ -284,7 +284,7 @@ $members = [
                             @foreach($members as $member)
 
                             <a
-                                href="{{ url('view_member?id=' . $member['id']) }}"
+                                href="{{ url('/view_member?id=' . $member['id']) }}"
                                 class="member-card-link">
 
                                 <div
