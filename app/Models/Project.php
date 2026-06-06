@@ -12,6 +12,13 @@ class Project extends Model {
     use SoftDeletes;
     
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ["status"];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -22,6 +29,22 @@ class Project extends Model {
             "title" => "string",
             "description" => "string",
         ];
+    }
+    
+    /**
+     * Get the project's dynamic status.
+     *
+     * @return string
+     */
+    public function getStatusAttribute(): string {
+        $tasks = $this->tasks;
+        if ($tasks->isEmpty()) {
+            return "inprogress";
+        }
+        
+        $allCompleted = $tasks->every(fn($task) => $task->status === "completed");
+        
+        return $allCompleted ? "done" : "inprogress";
     }
     
     /**

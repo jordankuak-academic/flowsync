@@ -1,25 +1,12 @@
 {{-- resources/views/pages/team/index.blade.php --}}
 
+@extends('layouts.hsxxx-layout')
+
+@section('page-title', 'Team')
+
+@section('content')
+
 @php
-
-require_once __DIR__ . '/includes/app-data.php';
-require_once __DIR__ . '/includes/app-actions.php';
-require_once __DIR__ . '/includes/app-routing.php';
-require_once __DIR__ . '/includes/app-assets.php';
-
-require_once __DIR__ . '/components/button.php';
-require_once __DIR__ . '/components/input.php';
-require_once __DIR__ . '/components/task-row.php';
-
-flowSyncStartSession();
-flowSyncInitializeData();
-flowSyncHandlePost();
-
-$isCategoryAction = request('action');
-
-$isEdit = request('action', '');
-
-$categoryName = request('name', '');
 
 $categories = [
 
@@ -67,266 +54,218 @@ $members = [
 
 ];
 
+$isCategoryAction = request('action');
+$isEdit = request('action', '');
+$categoryName = request('name', '');
+
 @endphp
 
-<!DOCTYPE html>
-<html lang="en">
+{{-- DASHBOARD --}}
+<section class="dashboard">
 
-<head>
+    <div class="overview-card">
 
-    <meta charset="UTF-8">
+        {{-- HEADER --}}
+        <div class="overview-header">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+            <div class="header-left">
 
-    <title>
-        FlowSync | Team Management
-    </title>
+                <h2>
 
-    {{-- BOOTSTRAP CSS --}}
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+                    {{ $isCategoryAction
+                        ? ($isEdit === 'edit-category'
+                            ? 'Edit Category'
+                            : 'Create Category')
+                        : 'Department Overview' }}
 
-    {{-- BOOTSTRAP ICONS --}}
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+                </h2>
 
-    {{-- CUSTOM SCSS --}}
-    @vite(['resources/scss/app.scss'])
+            </div>
 
-    {{-- FONT AWESOME --}}
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        </div>
 
-</head>
+        {{-- GRID --}}
+        <div class="overview-grid">
 
-<body>
+            {{-- LEFT PANEL --}}
+            @if($isCategoryAction)
 
-<div class="app-layout">
+            <div class="panel category-form-panel">
 
-    {{-- SIDEBAR --}}
-    @include('components.fs-sidemenu')
+                <div class="panel-title">
 
-    {{-- MAIN CONTENT --}}
-    <main class="main-content">
+                    <h3>
 
-        {{-- NAVBAR --}}
-        @include('components.fs-header')
+                        {{ $isEdit === 'edit-category'
+                            ? 'Edit Category'
+                            : 'Create Category' }}
 
-        {{-- DASHBOARD --}}
-        <section class="dashboard">
-
-            <div class="overview-card">
-
-                {{-- HEADER --}}
-                <div class="overview-header">
-
-                    <div class="header-left">
-
-                        <h2>
-
-                            {{ $isCategoryAction
-                                ? ($isEdit === 'edit-category'
-                                    ? 'Edit Category'
-                                    : 'Create Category')
-                                : 'Department Overview' }}
-
-                        </h2>
-
-                    </div>
+                    </h3>
 
                 </div>
 
-                {{-- GRID --}}
-                <div class="overview-grid">
+                <label class="category-label">
+                    Category Name
+                </label>
 
-                    {{-- LEFT PANEL --}}
-                    @if($isCategoryAction)
+                <input
+                    class="category-input"
+                    type="text"
+                    id="categoryInput"
+                    placeholder="Name"
+                    value="{{ $categoryName }}">
 
-                    <div class="panel category-form-panel">
+                <div class="button-group">
 
-                        <div class="panel-title">
+                    <button
+                        id="cancelBtn"
+                        class="cancel-btn">
 
-                            <h3>
+                        Cancel
 
-                                {{ $isEdit === 'edit-category'
-                                    ? 'Edit Category'
-                                    : 'Create Category' }}
+                    </button>
 
-                            </h3>
+                    <button
+                        id="confirmBtn"
+                        class="confirm-btn">
 
-                        </div>
+                        {{ $isEdit === 'edit-category'
+                            ? 'Save'
+                            : 'Confirm' }}
 
-                        <label class="category-label">
-                            Category Name
-                        </label>
-
-                        <input
-                            class="category-input"
-                            type="text"
-                            id="categoryInput"
-                            placeholder="Name"
-                            value="{{ $categoryName }}">
-
-                        <div class="button-group">
-
-                            <button
-                                id="cancelBtn"
-                                class="cancel-btn">
-
-                                Cancel
-
-                            </button>
-
-                            <button
-                                id="confirmBtn"
-                                class="confirm-btn">
-
-                                {{ $isEdit === 'edit-category'
-                                    ? 'Save'
-                                    : 'Confirm' }}
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    @else
-
-                    <div class="panel category-panel">
-
-                        <div class="panel-title">
-
-                            <h3>
-                                Category List
-                            </h3>
-
-                            <button
-                                id="addCategoryBtn"
-                                type="button">
-
-                                <i class="fa-solid fa-plus"></i>
-
-                            </button>
-
-                        </div>
-
-                        {{-- CATEGORY LIST --}}
-                        <ul id="categoryList">
-
-                            @foreach($categories as $category)
-
-                            <li data-category="{{ $category['name'] }}">
-
-                                <div class="category-info">
-
-                                    <span class="category-name">
-                                        {{ $category['name'] }}
-                                    </span>
-
-                                </div>
-
-                                <div class="category-actions">
-
-                                    <span class="badge">
-                                        {{ $category['count'] }}
-                                    </span>
-
-                                    <a
-                                        href="{{ url('/team?action=edit-category&name=' . urlencode($category['name'])) }}"
-                                        class="edit-btn">
-
-                                        <i class="bi bi-pencil-fill"></i>
-
-                                    </a>
-
-                                </div>
-
-                            </li>
-
-                            @endforeach
-
-                        </ul>
-
-                    </div>
-
-                    @endif
-
-                    {{-- MEMBER PANEL --}}
-                    <div class="panel member-panel">
-
-                        <div class="panel-title">
-
-                            <h3>
-                                Members
-                            </h3>
-
-                            <a
-                                href="{{ url('/create_member') }}"
-                                id="addMemberBtn">
-
-                                <i class="fa-solid fa-user-plus"></i>
-
-                            </a>
-
-                        </div>
-
-                        {{-- MEMBER GRID --}}
-                        <div
-                            class="member-grid"
-                            id="memberGrid">
-
-                            @foreach($members as $member)
-
-                            <a
-                                href="{{ url('/view_member?id=' . $member['id']) }}"
-                                class="member-card-link">
-
-                                <div
-                                    class="member-card"
-                                    data-id="{{ $member['id'] }}"
-                                    data-category="{{ $member['role'] }}">
-
-                                    <div class="avatar">
-                                        {{ $member['avatar'] }}
-                                    </div>
-
-                                    <div class="member-info">
-
-                                        <h4>
-                                            {{ $member['name'] }}
-                                        </h4>
-
-                                        <p>
-                                            {{ $member['role'] }}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </a>
-
-                            @endforeach
-
-                        </div>
-
-                    </div>
+                    </button>
 
                 </div>
 
             </div>
 
-        </section>
+            @else
 
-    </main>
+            <div class="panel category-panel">
 
-</div>
+                <div class="panel-title">
+
+                    <h3>
+                        Category List
+                    </h3>
+
+                    <button
+                        id="addCategoryBtn"
+                        type="button">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                    </button>
+
+                </div>
+
+                {{-- CATEGORY LIST --}}
+                <ul id="categoryList">
+
+                    @foreach($categories as $category)
+
+                    <li data-category="{{ $category['name'] }}">
+
+                        <div class="category-info">
+
+                            <span class="category-name">
+                                {{ $category['name'] }}
+                            </span>
+
+                        </div>
+
+                        <div class="category-actions">
+
+                            <span class="badge">
+                                {{ $category['count'] }}
+                            </span>
+
+                            <a
+                                href="{{ url('/team?action=edit-category&name=' . urlencode($category['name'])) }}"
+                                class="edit-btn">
+
+                                <i class="bi bi-pencil"></i>
+
+                            </a>
+
+                        </div>
+
+                    </li>
+
+                    @endforeach
+
+                </ul>
+
+            </div>
+
+            @endif
+
+            {{-- MEMBER PANEL --}}
+            <div class="panel member-panel">
+
+                <div class="panel-title">
+
+                    <h3>
+                        Members
+                    </h3>
+
+                    <a
+                        href="{{ url('/create_member') }}"
+                        id="addMemberBtn">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                    </a>
+
+                </div>
+
+                {{-- MEMBER GRID --}}
+                <div
+                    class="member-grid"
+                    id="memberGrid">
+
+                    @foreach($members as $member)
+
+                    <a
+                        href="{{ url('/view_member?id=' . $member['id']) }}"
+                        class="member-card-link">
+
+                        <div
+                            class="member-card"
+                            data-id="{{ $member['id'] }}"
+                            data-category="{{ $member['role'] }}">
+
+                            <div class="avatar">
+                                {{ $member['avatar'] }}
+                            </div>
+
+                            <div class="member-info">
+
+                                <h4>
+                                    {{ $member['name'] }}
+                                </h4>
+
+                                <p>
+                                    {{ $member['role'] }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    @endforeach
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {{-- SCRIPT --}}
 <script>
@@ -445,41 +384,4 @@ if(confirmBtn){
 
 </script>
 
-</body>
-</html>
-
-[$page, $pageFile] = flowSyncResolvePage(__DIR__);
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowSync</title>
-<?php flowSyncRenderStylesheets(); ?>
-</head>
-
-<body class="<?php echo $page === 'login' ? 'page-login bg-light' : 'bg-light'; ?>">
-    <?php if ($page === 'login'): ?>
-        <main class="login-split-container">
-            <?php include $pageFile; ?>
-        </main>
-    <?php else: ?>
-        <div class="app-container d-flex flex-column min-vh-100">
-            <?php include __DIR__ . '/includes/header.php'; ?>
-            <div class="main-layout d-flex flex-grow-1">
-                <?php include __DIR__ . '/includes/sidebar.php'; ?>
-                <main class="content-viewport flex-grow-1 p-4 fade-in">
-                    <?php include $pageFile; ?>
-                </main>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <?php include __DIR__ . '/includes/delete-modal.php'; ?>
-
-    <script src="assets/js/app.js"></script>
-</body>
-
-</html>
+@endsection

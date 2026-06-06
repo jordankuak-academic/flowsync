@@ -15,6 +15,10 @@
 
 @use "./modules/team";
 @use "./modules/member";
+@use "./modules/icon";
+@use "./modules/dashboard";
+@use "./modules/project";
 
-@use "./layouts/navbar";
-@use "./layouts/sidebar";
+@use "./layouts/hsxxx-layout";
+
+@use "./style";

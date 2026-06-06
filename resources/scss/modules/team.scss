@@ -1,4 +1,4 @@
-@use '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 /* =========================
    PAGE LAYOUT
@@ -14,7 +14,7 @@
 
     min-height:100vh;
 
-    background:#F8FAFC;
+    background:$secondary-50;
 }
 
 
@@ -34,9 +34,9 @@
 
 .overview-card{
 
-    background:#FFFFFF;
+    background:$base-white;
 
-    border:1px solid #DCE3F1;
+    border:1px solid $secondary-200;
 
     border-radius:28px;
 
@@ -60,7 +60,7 @@
 
     font-weight:700;
 
-    color:#0F172A;
+    color:$secondary-900;
 }
 
 
@@ -86,9 +86,9 @@
 
 .panel{
 
-    background:#F8FAFC;
+    background:$secondary-50;
 
-    border:1px solid #DCE3F1;
+    border:1px solid $secondary-200;
 
     border-radius:24px;
 
@@ -98,9 +98,10 @@
 
 /* =========================
    PANEL TITLE
+   Scoped under .overview-card to avoid conflict with member.scss
 ========================= */
 
-.panel-title{
+.overview-card .panel-title{
 
     display:flex;
 
@@ -112,13 +113,13 @@
 }
 
 
-.panel-title h3{
+.overview-card .panel-title h3{
 
     font-size:26px;
 
     font-weight:700;
 
-    color:#0F172A;
+    color:$secondary-900;
 
     margin:0;
 }
@@ -139,9 +140,9 @@
 
     border-radius:16px;
 
-    background:#2563EB;
+    background:$primary-600;
 
-    color:#FFFFFF;
+    color:$base-white;
 
     display:flex;
 
@@ -187,9 +188,9 @@
 
     justify-content:space-between;
 
-    background:#FFFFFF;
+    background:$base-white;
 
-    border:1px solid #DCE3F1;
+    border:1px solid $secondary-200;
 
     border-radius:18px;
 
@@ -215,7 +216,7 @@
 
     font-weight:600;
 
-    color:#0F172A;
+    color:$secondary-900;
 }
 
 
@@ -233,7 +234,9 @@
 }
 
 
-.badge{
+/* Category badge (scoped to avoid conflict with style.scss .badge) */
+
+.category-actions .badge{
 
     width:34px;
 
@@ -241,9 +244,9 @@
 
     border-radius:50%;
 
-    background:#2563EB;
+    background:$primary-600;
 
-    color:#FFFFFF;
+    color:$base-white;
 
     display:flex;
 
@@ -254,6 +257,8 @@
     font-size:14px;
 
     font-weight:700;
+
+    padding:0;
 }
 
 
@@ -265,9 +270,9 @@
 
     border-radius:10px;
 
-    background:#EFF4FF;
+    background:$primary-50;
 
-    color:#2563EB;
+    color:$primary-600;
 
     display:flex;
 
@@ -299,7 +304,7 @@
 
     margin-bottom:12px;
 
-    color:#0F172A;
+    color:$secondary-900;
 }
 
 
@@ -309,7 +314,7 @@
 
     height:58px;
 
-    border:1px solid #CBD5E1;
+    border:1px solid $secondary-300;
 
     border-radius:16px;
 
@@ -319,7 +324,7 @@
 
     margin-bottom:28px;
 
-    background:#FFFFFF;
+    background:$base-white;
 }
 
 
@@ -327,12 +332,13 @@
 
     outline:none;
 
-    border-color:#2563EB;
+    border-color:$primary-600;
 }
 
 
 /* =========================
    BUTTON GROUP
+   Scoped under .category-form-panel to avoid conflict with member.scss
 ========================= */
 
 .button-group{
@@ -345,8 +351,9 @@
 }
 
 
-.cancel-btn,
-.confirm-btn{
+/* Team-page cancel/confirm buttons scoped under .button-group */
+
+.button-group .cancel-btn{
 
     flex:1;
 
@@ -361,30 +368,41 @@
     font-weight:700;
 
     cursor:pointer;
+
+    background:$secondary-200;
+
+    color:$secondary-900;
 }
 
 
-.cancel-btn{
+.button-group .confirm-btn{
 
-    background:#E2E8F0;
+    flex:1;
 
-    color:#0F172A;
-}
+    height:52px;
 
+    border:none;
 
-.confirm-btn{
+    border-radius:16px;
 
-    background:#2563EB;
+    font-size:15px;
 
-    color:#FFFFFF;
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:$primary-600;
+
+    color:$base-white;
 }
 
 
 /* =========================
-   MEMBER GRID
+   MEMBER GRID (team page — 4-col fixed)
+   Scoped under .member-panel to avoid conflict with member.scss
 ========================= */
 
-.member-grid{
+.member-panel .member-grid{
 
     display:grid;
 
@@ -405,14 +423,14 @@
 
 
 /* =========================
-   MEMBER CARD
+   MEMBER CARD (team page version)
 ========================= */
 
-.member-card{
+.overview-card .member-card{
 
-    background:#FFFFFF;
+    background:$base-white;
 
-    border:1px solid #DCE3F1;
+    border:1px solid $secondary-200;
 
     border-radius:22px;
 
@@ -434,17 +452,17 @@
 }
 
 
-.member-card:hover{
+.overview-card .member-card:hover{
 
     transform:translateY(-3px);
 }
 
 
 /* =========================
-   AVATAR
+   TEAM PAGE AVATAR (scoped under .overview-card to avoid conflict with member.scss)
 ========================= */
 
-.avatar{
+.overview-card .avatar{
 
     width:72px;
 
@@ -452,9 +470,9 @@
 
     border-radius:50%;
 
-    background:#2563EB;
+    background:$primary-600;
 
-    color:#FFFFFF;
+    color:$base-white;
 
     display:flex;
 
@@ -471,26 +489,26 @@
 
 
 /* =========================
-   MEMBER INFO
+   MEMBER INFO (team page)
 ========================= */
 
-.member-info h4{
+.overview-card .member-info h4{
 
     font-size:22px;
 
     font-weight:600;
 
-    color:#0F172A;
+    color:$secondary-900;
 
     margin-bottom:8px;
 }
 
 
-.member-info p{
+.overview-card .member-info p{
 
     font-size:15px;
 
-    color:#64748B;
+    color:$secondary-500;
 
     margin:0;
 }
@@ -514,7 +532,7 @@
 
     border-radius:14px;
 
-    color:#FFFFFF;
+    color:$base-white;
 
     font-size:14px;
 
@@ -540,34 +558,11 @@
 
 .custom-toast.success{
 
-    background:#16A34A;
+    background:$success-500;
 }
 
 
 .custom-toast.error{
 
-    background:#DC2626;
+    background:$error-500;
 }
-
-// Core variables, functions, and mixins
-@import "./abstracts/base";
-@import "./abstracts/global";
-
-// Global legacy styling & utility layer
-@import "./style.scss";
-
-// Icons (Google Material Symbols mapping)
-@import "./icons.scss";
-
-// Page level stylesheet
-@import "./page.scss";
-
-// Module stylesheets
-@import "./modules/login.scss";
-@import "./modules/dashboard.scss";
-@import "./modules/project.scss";
-@import "./modules/team.scss";
-
-// Layout stylesheets (in case any custom overrides are needed)
-@import "./layouts/hsxxx-layout.scss";
-@import "./layouts/xxxxx-layout.scss";

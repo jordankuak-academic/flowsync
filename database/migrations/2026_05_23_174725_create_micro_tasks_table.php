@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create("micro_tasks", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("project_id")->constrained()->onDelete("cascade");
+            $table->foreignId("task_id")->constrained()->onDelete("cascade");
             $table->string("title");
             $table->json("assignees")->nullable();
             $table->date("due_date")->nullable();
