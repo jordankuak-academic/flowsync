@@ -1,5 +1,6 @@
 @extends('layouts.hsxxx-layout')
 
+
 @section('page-title', 'Dashboard')
 
 @section('content')
