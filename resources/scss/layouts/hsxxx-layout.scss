@@ -1,0 +1,274 @@
+@use "../abstracts/variables" as *;
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.app-header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:76px;
+
+    background:$base-white;
+
+    border-bottom:4px solid $primary-600;
+
+    z-index:999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 32px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.03);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-text{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:$primary-600;
+
+    letter-spacing:0.3px;
+
+    text-decoration:none;
+
+    line-height:1;
+}
+
+
+/* =========================
+   PROFILE SECTION
+========================= */
+
+.profile-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+
+/* =========================
+   PROFILE INFO
+========================= */
+
+.profile-info{
+
+    text-align:right;
+}
+
+.profile-name{
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:$primary-600;
+
+    line-height:1.1;
+
+    margin-bottom:3px;
+}
+
+.profile-role{
+
+    font-size:11px;
+
+    font-weight:500;
+
+    color:$secondary-500;
+
+    line-height:1;
+}
+
+
+/* =========================
+   PROFILE AVATAR
+========================= */
+
+.profile-circle{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        $primary-500,
+        $primary-700
+    );
+
+    color:$base-white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    box-shadow:0 6px 16px rgba(37,99,235,0.22);
+
+    border:2px solid $base-white;
+}
+
+
+.app-sidebar{
+
+    position:fixed;
+
+    top:76px;
+
+    left:0;
+
+    width:70px;
+
+    height:calc(100vh - 76px);
+
+    background:$base-white;
+
+    border-right:1px solid $secondary-200;
+
+    z-index:1000;
+}
+
+/* NAVIGATION */
+
+.app-sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:16px;
+}
+
+
+/* NAV ITEM */
+
+.nav-item{
+
+    width:44px;
+
+    height:58px;
+
+    border-radius:12px;
+
+    display:flex !important;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+
+    text-decoration:none;
+
+    color:$secondary-400;
+
+    transition:0.2s ease;
+}
+
+
+/* ICON */
+
+.nav-item i{
+
+    font-size:15px;
+}
+
+
+/* TEXT */
+
+.nav-item span{
+
+    font-size:8px;
+
+    font-weight:600;
+}
+
+
+/* ACTIVE */
+
+.nav-item.active{
+
+    background:$primary-600;
+
+    color:$base-white !important;
+
+    box-shadow:0 8px 18px rgba(37,99,235,0.18);
+}
+
+
+/* ACTIVE TEXT */
+
+.nav-item.active i,
+.nav-item.active span{
+
+    color:$base-white;
+}
+
+
+/* HOVER */
+
+.nav-item:hover{
+
+    background:$primary-50;
+
+    color:$primary-600;
+}
+
+
+/* LOGOUT */
+
+.logout-btn{
+
+    position:absolute;
+
+    bottom:16px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:$secondary-400;
+}
+
+.logout-btn:hover{
+
+    background:$primary-600;
+
+    color:$base-white;
+}
