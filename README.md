@@ -13,21 +13,21 @@ A Laravel-based internal task management system designed for tracking projects, 
 
 ### Cheng Wei Le
 
-- **Student ID:** 
+- **Student ID:** BAI_A2009F-2605008
 - **Email Address:** cheng.academic123@gmail.com
 - **Role:** Backend Developer, UIUX Designer
 - **Responsibilities:** Develop the backend features of the project, design the UIUX of the project by using Figma, and coordinate with the team members to ensure the project is delivered on time.
 
 ### Lim Swee Sheng
 
-- **Student ID:** 
+- **Student ID:** BAI_A2009F-2605010
 - **Email Address:** limsweesheng@gmail.com
 - **Role:** Frontend Developer, Tester
 - **Responsibilities:** Develop the frontend features of the project, application the UI design by Wei Le, and merge the data access layer with the backend features.
 
 ### Andrew Tan Yan Rui
 
-- **Student ID:** 
+- **Student ID:** BAI_A2009F-2605005
 - **Email Address:** yanrui1216@gmail.com
 - **Role:** Frontend Developer, Tester
 - **Responsibilities:** Test the frontend features of the project, apply the UI design by Wei Le, and combine the frontend features with the backend features to ensure all the function works as expected.
