@@ -159,7 +159,7 @@ The Company Task Tracker System is a lightweight web application built with Lara
 
 Our team is using the `KanBan` board to manage the tasks.
 
-![KanBan-Image](Readme_Sources/KanBan_Image.png)
+![KanBan-Image](Readme_Sources/Kanban_Image.png)
 
 All the task in this project is managed in the `KanBan` board. And shown in list form in the dashboard.
 
