@@ -4,6 +4,46 @@
 
 @section('content')
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['staff'])) {
+    $_SESSION['staff'] = [
+        ['id' => 'staff_1', 'name' => 'Alice Tan',   'role' => 'Project Manager'],
+        ['id' => 'staff_2', 'name' => 'Bob Lee',      'role' => 'UI/UX Designer'],
+        ['id' => 'staff_3', 'name' => 'Carol Ng',     'role' => 'Web Developer'],
+        ['id' => 'staff_4', 'name' => 'David Lim',    'role' => 'QA Engineer'],
+    ];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_member') {
+    $mode = $_POST['mode'] ?? 'create';
+    $memberId = $_POST['member_id'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $role = $_POST['role'] ?? '';
+
+    if ($mode === 'edit' && $memberId !== '') {
+        foreach ($_SESSION['staff'] as &$m) {
+            if ($m['id'] === $memberId) {
+                $m['name'] = $name;
+                $m['role'] = $role;
+                break;
+            }
+        }
+    } else {
+        $newId = 'staff_' . uniqid();
+        $_SESSION['staff'][] = [
+            'id' => $newId,
+            'name' => $name,
+            'role' => $role
+        ];
+    }
+
+    header('Location: /team');
+    exit;
+}
+
 $mode = isset($_GET['mode']) ? $_GET['mode'] : 'create';
 $memberId = isset($_GET['member_id']) ? $_GET['member_id'] : '';
 
@@ -14,7 +54,7 @@ $nameVal = '';
 $roleVal = '';
 
 if ($mode === 'edit') {
-    $members = $_SESSION['staff'] ?? [];
+    $members = $_SESSION['staff'];
     foreach ($members as $m) {
         if ($m['id'] === $memberId) {
             $nameVal = $m['name'] ?? '';
