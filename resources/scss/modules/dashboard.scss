@@ -1,0 +1,6 @@
+.dashboard-task-card { transition: transform .15s ease, box-shadow .15s ease; }
+.dashboard-task-card:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15, 23, 42, .08) !important; }
+.progress-btn i { transition: transform .2s cubic-bezier(.175,.885,.32,1.275); }
+.progress-btn:hover i { transform: scale(1.2); }
+.progress-btn.in-progress i { animation: pulse-blue 2s infinite; }
+@keyframes pulse-blue { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }

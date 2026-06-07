@@ -18,3 +18,15 @@ Route::middleware([])->group(function (): void {
         Route::get("/edit/{team}", fn(): View => view("pages.team.member.edit"))->name("team.member.edit");
     });
 });
+
+Route::get('/view_member', function () {
+    return view('pages.team.member.view');
+})->name('member.view');
+
+Route::get('/create_member', function () {
+    return view('pages.team.member.create');
+})->name('member.create');
+
+Route::get('/edit_member', function () {
+    return view('pages.team.member.edit');
+})->name('member.edit');

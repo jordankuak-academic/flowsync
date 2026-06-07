@@ -12,3 +12,14 @@
 
 @use "./abstracts/base";
 @use "./abstracts/global";
+
+@use "./modules/team";
+@use "./modules/member";
+@use "./modules/icon";
+@use "./modules/dashboard";
+@use "./modules/project";
+@use "./modules/login";
+
+@use "./layouts/hsxxx-layout";
+
+@use "./style";

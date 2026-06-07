@@ -1,0 +1,568 @@
+@use '../abstracts/variables' as *;
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.main-content{
+
+    margin-left:70px;
+
+    margin-top:76px;
+
+    padding:24px;
+
+    min-height:100vh;
+
+    background:$secondary-50;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+
+    width:100%;
+}
+
+
+/* =========================
+   OVERVIEW CARD
+========================= */
+
+.overview-card{
+
+    background:$base-white;
+
+    border:1px solid $secondary-200;
+
+    border-radius:28px;
+
+    padding:32px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.overview-header{
+
+    margin-bottom:28px;
+}
+
+
+.header-left h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:$secondary-900;
+}
+
+
+/* =========================
+   OVERVIEW GRID
+========================= */
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:360px 1fr;
+
+    gap:28px;
+
+    align-items:start;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel{
+
+    background:$secondary-50;
+
+    border:1px solid $secondary-200;
+
+    border-radius:24px;
+
+    padding:24px;
+}
+
+
+/* =========================
+   PANEL TITLE
+   Scoped under .overview-card to avoid conflict with member.scss
+========================= */
+
+.overview-card .panel-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+}
+
+
+.overview-card .panel-title h3{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:$secondary-900;
+
+    margin:0;
+}
+
+
+/* =========================
+   ADD BUTTONS
+========================= */
+
+#addCategoryBtn,
+#addMemberBtn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:$primary-600;
+
+    color:$base-white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+}
+
+
+/* =========================
+   CATEGORY LIST
+========================= */
+
+#categoryList{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+
+#categoryList li{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:$base-white;
+
+    border:1px solid $secondary-200;
+
+    border-radius:18px;
+
+    padding:18px;
+}
+
+
+/* =========================
+   CATEGORY INFO
+========================= */
+
+.category-info{
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+.category-name{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:$secondary-900;
+}
+
+
+/* =========================
+   CATEGORY ACTIONS
+========================= */
+
+.category-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+/* Category badge (scoped to avoid conflict with style.scss .badge) */
+
+.category-actions .badge{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:$primary-600;
+
+    color:$base-white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    padding:0;
+}
+
+
+.edit-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:10px;
+
+    background:$primary-50;
+
+    color:$primary-600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+}
+
+
+/* =========================
+   CATEGORY FORM
+========================= */
+
+.category-form-panel{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+.category-label{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+    color:$secondary-900;
+}
+
+
+.category-input{
+
+    width:100%;
+
+    height:58px;
+
+    border:1px solid $secondary-300;
+
+    border-radius:16px;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    margin-bottom:28px;
+
+    background:$base-white;
+}
+
+
+.category-input:focus{
+
+    outline:none;
+
+    border-color:$primary-600;
+}
+
+
+/* =========================
+   BUTTON GROUP
+   Scoped under .category-form-panel to avoid conflict with member.scss
+========================= */
+
+.button-group{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:auto;
+}
+
+
+/* Team-page cancel/confirm buttons scoped under .button-group */
+
+.button-group .cancel-btn{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:$secondary-200;
+
+    color:$secondary-900;
+}
+
+
+.button-group .confirm-btn{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:$primary-600;
+
+    color:$base-white;
+}
+
+
+/* =========================
+   MEMBER GRID (team page — 4-col fixed)
+   Scoped under .member-panel to avoid conflict with member.scss
+========================= */
+
+.member-panel .member-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+
+/* =========================
+   MEMBER CARD LINK
+========================= */
+
+.member-card-link{
+
+    text-decoration:none;
+}
+
+
+/* =========================
+   MEMBER CARD (team page version)
+========================= */
+
+.overview-card .member-card{
+
+    background:$base-white;
+
+    border:1px solid $secondary-200;
+
+    border-radius:22px;
+
+    padding:22px 16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    min-height:220px;
+
+    transition:0.2s ease;
+}
+
+
+.overview-card .member-card:hover{
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   TEAM PAGE AVATAR (scoped under .overview-card to avoid conflict with member.scss)
+========================= */
+
+.overview-card .avatar{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    background:$primary-600;
+
+    color:$base-white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   MEMBER INFO (team page)
+========================= */
+
+.overview-card .member-info h4{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:$secondary-900;
+
+    margin-bottom:8px;
+}
+
+
+.overview-card .member-info p{
+
+    font-size:15px;
+
+    color:$secondary-500;
+
+    margin:0;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.custom-toast{
+
+    position:fixed;
+
+    top:24px;
+
+    right:24px;
+
+    min-width:280px;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    color:$base-white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:0.3s ease;
+
+    z-index:9999;
+}
+
+
+.custom-toast.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+.custom-toast.success{
+
+    background:$success-500;
+}
+
+
+.custom-toast.error{
+
+    background:$error-500;
+}

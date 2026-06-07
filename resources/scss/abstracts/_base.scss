@@ -14,3 +14,15 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --header-height: 72px;
+  --sidebar-width: 96px;
+}
+
+main {
+    padding:1rem;
+    margin-left: var(--sidebar-width);
+    margin-top: var(--header-height);
+    min-height: calc(100vh - 72px);
+}
