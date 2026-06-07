@@ -1,5 +1,11 @@
 @php
-    $currentPage = $currentPage ?? 'team';
+    $currentPage = $currentPage ?? request()->route()?->getName() ?? 'team';
+
+    if (str_starts_with($currentPage, 'team')) {
+        $currentPage = 'team';
+    } elseif ($currentPage !== 'dashboard' && $currentPage !== 'project') {
+        $currentPage = 'team';
+    }
 @endphp
 
 <aside class="app-sidebar">
@@ -18,7 +24,7 @@
         <a href="{{ url('/project') }}"
            class="nav-item {{ $currentPage === 'project' ? 'active' : '' }}">
 
-            <i class="bi bi-kanban-fill"></i>
+            <i class="bi bi-kanban"></i>
 
             <span>Project</span>
 

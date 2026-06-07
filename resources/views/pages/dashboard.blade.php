@@ -1,16 +1,16 @@
 @extends('layouts.hsxxx-layout')
 
-
 @section('page-title', 'Dashboard')
 
 @section('content')
 <?php
 // Helper to render compact task card optimized for dashboard columns
 if (!function_exists('renderDashboardTaskCard')) {
-    function renderDashboardTaskCard($id, $name, $status, $column) {
+    function renderDashboardTaskCard($id, $name, $status, $column, $projectId = '') {
         $statusClass = '';
         $statusIcon = 'bi-circle';
         $statusTitle = 'Status: None';
+        $taskUrl = $projectId !== '' ? url('/project?project_id=' . urlencode($projectId)) : url('/project');
         
         if ($status === 'in-progress') {
             $statusClass = 'in-progress';
@@ -37,8 +37,8 @@ if (!function_exists('renderDashboardTaskCard')) {
                     </div>
                     <span class="text-truncate fw-medium text-dark small">%s</span>
                 </div>
-                <button class="btn btn-link btn-sm p-0 more-actions-btn" data-id="%s" data-type="dashboard-task" data-column="%s" data-name="%s">
-                    <i class="bi bi-three-dots-vertical text-secondary"></i>
+                <button class="btn btn-link btn-sm p-0 more-actions-btn" data-id="%s" data-type="dashboard-task" data-column="%s" data-name="%s" data-url="%s">
+                    <i class="bi bi-chevron-right text-secondary"></i>
                 </button>
              </div>',
             htmlspecialchars($id),
@@ -51,7 +51,8 @@ if (!function_exists('renderDashboardTaskCard')) {
             htmlspecialchars($name),
             htmlspecialchars($id),
             htmlspecialchars($column),
-            htmlspecialchars($name)
+            htmlspecialchars($name),
+            htmlspecialchars($taskUrl)
         );
     }
 }
@@ -67,19 +68,19 @@ if (!function_exists('renderDashboardTaskCard')) {
     // Fake data — replace with API calls when backend is ready
     $dashboardTasks = [
         'today' => [
-            ['id' => 'dt_1', 'name' => 'Design component library', 'status' => 'in-progress'],
-            ['id' => 'dt_2', 'name' => 'Define color tokens',       'status' => 'done'],
+            ['id' => 'dt_1', 'name' => 'Design component library', 'status' => 'in-progress', 'project_id' => 'proj_1'],
+            ['id' => 'dt_2', 'name' => 'Define color tokens',       'status' => 'done',        'project_id' => 'proj_1'],
         ],
         'upcoming' => [
-            ['id' => 'dt_3', 'name' => 'Implement dashboard page',  'status' => 'none'],
-            ['id' => 'dt_4', 'name' => 'Define API endpoints',       'status' => 'in-progress'],
+            ['id' => 'dt_3', 'name' => 'Implement dashboard page',  'status' => 'none',       'project_id' => 'proj_2'],
+            ['id' => 'dt_4', 'name' => 'Define API endpoints',       'status' => 'in-progress', 'project_id' => 'proj_2'],
         ],
         'overdue' => [
-            ['id' => 'dt_5', 'name' => 'Set up project scaffolding','status' => 'done'],
+            ['id' => 'dt_5', 'name' => 'Set up project scaffolding','status' => 'done',        'project_id' => 'proj_1'],
         ],
         'unscheduled' => [
-            ['id' => 'dt_6', 'name' => 'Build button variants',     'status' => 'none'],
-            ['id' => 'dt_7', 'name' => 'Write unit tests',          'status' => 'none'],
+            ['id' => 'dt_6', 'name' => 'Build button variants',     'status' => 'none',       'project_id' => 'proj_3'],
+            ['id' => 'dt_7', 'name' => 'Write unit tests',          'status' => 'none',       'project_id' => 'proj_3'],
         ],
     ];
 
@@ -113,7 +114,7 @@ if (!function_exists('renderDashboardTaskCard')) {
                 <?php else: ?>
                     <?php
                     foreach ($tasks as $task) {
-                        echo renderDashboardTaskCard($task['id'], $task['name'], $task['status'] ?? 'none', $key);
+                        echo renderDashboardTaskCard($task['id'], $task['name'], $task['status'] ?? 'none', $key, $task['project_id'] ?? '');
                     }
                     ?>
                 <?php endif; ?>

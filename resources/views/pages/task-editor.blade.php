@@ -1,4 +1,111 @@
     <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$defaultProjects = [
+    'proj_1' => [
+        'id'          => 'proj_1',
+        'name'        => 'FlowSync Redesign',
+        'description' => 'Redesign the FlowSync UI from scratch using full CSS.',
+        'status'      => 'inprogress',
+        'tasks'       => [
+            'task_1' => [
+                'id'        => 'task_1',
+                'name'      => 'Set up project scaffolding',
+                'status'    => 'done',
+                'priority'  => 'High',
+                'due'       => '2026-05-20',
+                'assignees' => ['staff_1'],
+                'subtasks'  => [],
+            ],
+            'task_2' => [
+                'id'        => 'task_2',
+                'name'      => 'Design component library',
+                'status'    => 'in-progress',
+                'priority'  => 'High',
+                'due'       => '2026-06-01',
+                'assignees' => ['staff_2'],
+                'subtasks'  => [
+                    'sub_1' => [
+                        'id'        => 'sub_1',
+                        'name'      => 'Define color tokens',
+                        'status'    => 'done',
+                        'priority'  => 'Normal',
+                        'due'       => '2026-05-25',
+                        'assignees' => ['staff_2'],
+                    ],
+                    'sub_2' => [
+                        'id'        => 'sub_2',
+                        'name'      => 'Build button variants',
+                        'status'    => 'none',
+                        'priority'  => 'Normal',
+                        'due'       => 'Unscheduled',
+                        'assignees' => [],
+                    ],
+                ],
+            ],
+            'task_3' => [
+                'id'        => 'task_3',
+                'name'      => 'Implement dashboard page',
+                'status'    => 'none',
+                'priority'  => 'Normal',
+                'due'       => 'Unscheduled',
+                'assignees' => [],
+                'subtasks'  => [],
+            ],
+        ],
+    ],
+    'proj_2' => [
+        'id'          => 'proj_2',
+        'name'        => 'API Integration',
+        'description' => 'Connect frontend to Laravel backend via REST API.',
+        'status'      => 'inprogress',
+        'tasks'       => [
+            'task_4' => [
+                'id'        => 'task_4',
+                'name'      => 'Define API endpoints',
+                'status'    => 'in-progress',
+                'priority'  => 'High',
+                'due'       => '2026-06-10',
+                'assignees' => ['staff_3'],
+                'subtasks'  => [],
+            ],
+        ],
+    ],
+    'proj_3' => [
+        'id'          => 'proj_3',
+        'name'        => 'User Auth Module',
+        'description' => 'Login, registration, and role-based access control.',
+        'status'      => 'done',
+        'tasks'       => [
+            'task_5' => [
+                'id'        => 'task_5',
+                'name'      => 'Implement login page',
+                'status'    => 'done',
+                'priority'  => 'High',
+                'due'       => '2026-05-10',
+                'assignees' => ['staff_1', 'staff_2'],
+                'subtasks'  => [],
+            ],
+        ],
+    ],
+];
+
+$defaultStaff = [
+    ['id' => 'staff_1', 'name' => 'Alice Tan',   'role' => 'Project Manager'],
+    ['id' => 'staff_2', 'name' => 'Bob Lee',      'role' => 'UI/UX Designer'],
+    ['id' => 'staff_3', 'name' => 'Carol Ng',     'role' => 'Web Developer'],
+    ['id' => 'staff_4', 'name' => 'David Lim',    'role' => 'QA Engineer'],
+];
+
+if (!isset($_SESSION['projects'])) {
+    $_SESSION['projects'] = $defaultProjects;
+}
+if (!isset($_SESSION['staff'])) {
+    $_SESSION['staff'] = $defaultStaff;
+}
+
 $mode = isset($_GET['mode']) ? $_GET['mode'] : 'create';
 $type = isset($_GET['type']) ? $_GET['type'] : 'task';
 $projectId = isset($_GET['project_id']) ? $_GET['project_id'] : 'proj_1';
